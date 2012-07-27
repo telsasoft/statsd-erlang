@@ -1,20 +1,20 @@
 # statsd-erlang
 
-an Erlang client for [statsd](https://github.com/etsy/statsd).
+an Erlang client for [statsd](https://github.com/etsy/statsd) that is based on OTP's gen_server behaviour.
 
 ## Usage
 
 ```erlang
-Statsd = statsd:start("localhost", 8125).
+statsd:start("localhost", 8125).
 
-stats:increment(Statsd, "foo.bar").
-stats:count(Statsd, "foo.bar", 5).
-stats:timing(Statsd, "foo.bar", 2500).
+statsd:increment("foo.bar").
+statsd:count("foo.bar", 5).
+statsd:timing("foo.bar", 2500).
 ```
 
 ## Development
 
-To compile the source, run `erl -make` from the root directory.
+To compile the source, run `erl -make` from the root directory. You can also use [rebar](https://github.com/basho/rebar/).
 
 ## Author
 
