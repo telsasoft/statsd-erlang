@@ -97,7 +97,7 @@ send(Message) ->
 %% 
 %% returns: a String
 build_message({message, Key, Value, Type}) ->
-	lists:concat([Key, ":", Value, "|", Type]);
+	lists:concat([Key, ":", io_lib:format("~w", [Value]), "|", Type]);
 build_message({message, Key, Value, Type, Samplerate}) ->
 	lists:concat([build_message({message, Key, Value, Type}) | ["@", io_lib:format("~.2f", [1.0 / Samplerate])]]).
 
