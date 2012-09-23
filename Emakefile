@@ -1,1 +1,1 @@
-{'src/statsd.erl', [debug_info, {outdir, 'ebin'}]}.
+{'src/*.erl', [debug_info, {outdir, 'ebin'}]}.
