@@ -73,6 +73,12 @@ count(Key, Value) ->
 count(Key, Value, Samplerate) ->
 	send({message, Key, Value, c, Samplerate}).
 
+%% Public: sends an arbitrary gauge value
+%%
+%% returns: ok or {error, Reason}
+gauge(Key, Value) ->
+	send({message, Key, Value, g}).
+
 %% Public: sends a timing in ms
 %%
 %% returns: ok or {error, Reason}
