@@ -8,6 +8,10 @@
 -export([start/2, start/1, start/0, stop/0]).
 -export([increment/1, increment/2, decrement/1, decrement/2, count/2, count/3, gauge/2, timing/2, timing/3]).
 
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-endif.
+
 -define(STATSD_DEFAULT_PORT, 8125).
 -define(STATSD_DEFAULT_HOST, "localhost").
 

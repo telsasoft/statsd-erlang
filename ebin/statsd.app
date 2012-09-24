@@ -3,7 +3,8 @@
   {vsn, "0.0.1"},
   {modules,
     [ statsd,
-      statsd_app
+      statsd_app,
+      statsd_tests
 	  ]
 	},
   {registered, []},

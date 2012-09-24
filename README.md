@@ -12,9 +12,13 @@ statsd:count("foo.bar", 5).
 statsd:timing("foo.bar", 2500).
 ```
 
-## Development
+## Build statsd-erlang
 
-To compile the source, run `erl -make` from the root directory. You can also use [rebar](https://github.com/basho/rebar/).
+You can use [rebar](https://github.com/basho/rebar/) to compile the sources and run the tests.
+
+```
+rebar compile eunit
+```
 
 ## Author
 
