@@ -1,6 +1,8 @@
 # statsd-erlang
 
-an Erlang client for [statsd](https://github.com/etsy/statsd) that is based on OTP's gen_server behaviour.
+[![Build Status](https://secure.travis-ci.org/domnikl/statsd-erlang.png)](http://travis-ci.org/domnikl/statsd-erlang)
+
+An Erlang client for [statsd](https://github.com/etsy/statsd) that is based on OTP's gen_server behaviour.
 
 ## Usage
 
