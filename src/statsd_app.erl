@@ -7,8 +7,8 @@
 %% Public: starts the statsd server
 %%
 %% returns a #state record containing the socket
-start(_Type, _Args) ->
-  statsd:start().
+start(_Type, Args) ->
+  erlang:apply(statsd, start, Args).
 
 %% Public: stops the statsd server
 %%
