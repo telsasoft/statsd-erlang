@@ -71,7 +71,7 @@ decrement(Key) ->
 count(Key, Value) ->
 	send({message, Key, Value, c}).
 count(Key, Value, Samplerate) ->
-	send({message, Key, Value, c, Samplerate}).
+	send({message, Key, Value, c, Samplerate}, Samplerate).
 
 %% Public: sends an arbitrary gauge value
 %%
@@ -85,13 +85,22 @@ gauge(Key, Value) ->
 timing(Key, Value) ->
 	send({message, Key, Value, ms}).
 timing(Key, Value, Samplerate) ->
-	send({message, Key, Value, ms, Samplerate}).
+	send({message, Key, Value, ms, Samplerate}, Samplerate).
 	
 %% Internal: prepares and sends the messages
 %%
 %% returns: ok or {error, Reason}
+send(Message, Samplerate) when Samplerate =:= 1 ->
+    send(Message);
+
+send(Message, Samplerate) ->
+    case random:uniform() =< Samplerate of
+        true -> send(Message);
+        _ -> ok
+    end.
+
 send(Message) ->
-	gen_server:call(?MODULE, {send_message, build_message(Message)}).
+    gen_server:call(?MODULE, {send_message, build_message(Message)}).
 
 %% Internal: builds the message string to be sent
 %% 
