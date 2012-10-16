@@ -4,6 +4,20 @@ an Erlang client for [statsd](https://github.com/etsy/statsd) that is based on O
 
 ## Usage
 
+Add statsd-erlang to your application file like this:
+
+```erlang
+{mod, {statsd_app, []}}
+```
+
+You can specify the host and/or port in the configuration, too:
+
+```erlang
+{mod, {statsd_app, ["localhost", 8125]}}
+```
+
+The values "localhost" and 8125 are set by default, so you only have to specify them if you want to use others.
+
 ```erlang
 statsd:start("localhost", 8125).
 
