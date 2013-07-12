@@ -28,17 +28,17 @@ statsd:timing("foo.bar", 2500).
 
 ## Development
 
-To compile the source, run `erl -make` from the root directory. You can also use [rebar](https://github.com/basho/rebar/).
+To compile the source, use [rebar](https://github.com/basho/rebar/).
 
 ## Author
 
-Original author: Dominik Liebler <liebler.dominik@googlemail.com>
+Original author: Dominik Liebler <liebler.dominik@gmail.com>
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Dominik Liebler
+Copyright (c) 2013 Dominik Liebler
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
