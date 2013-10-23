@@ -100,7 +100,7 @@ send(Message, Samplerate) ->
     end.
 
 send(Message) ->
-    gen_server:call(?MODULE, {send_message, build_message(Message)}).
+    gen_server:cast(?MODULE, {send_message, build_message(Message)}).
 
 %% Internal: builds the message string to be sent
 %% 
@@ -113,13 +113,12 @@ build_message({message, Key, Value, Type, Samplerate}) ->
 %% Internal: handles gen_server:call calls
 %%
 %% returns:	{reply, ok|error, State}
-handle_call({send_message, Message}, _From, State) ->
+handle_cast({send_message, Message}, State) ->
 	gen_udp:send(State#state.socket, State#state.host, State#state.port, Message),
-	{reply, ok, State};
+	{ok, State}.
 handle_call(stop, _From, State) ->
 	gen_udp:close(State#state.socket),
 	{stop, normal, stopped, State}.
 	
 code_change(_OldVersion, State, _Extra) -> {ok, State}.
-handle_cast(_Message, State) -> {ok, State}.
 handle_info(_Info, State) -> {ok, State}.
