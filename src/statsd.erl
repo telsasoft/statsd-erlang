@@ -41,7 +41,7 @@ stop() ->
 %%
 %% returns: {ok, State}
 init([State]) ->
-	{normal, State}.
+	{ok}.
 
 %% Internal: used by gen_server and called on connection termination
 %%
