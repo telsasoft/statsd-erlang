@@ -116,6 +116,10 @@ build_message({message, Key, Value, Type, Samplerate}) ->
 handle_cast({send_message, Message}, State) ->
 	gen_udp:send(State#state.socket, State#state.host, State#state.port, Message),
 	{ok, State}.
+	
+handle_call({send_message, Message}, _From, State) ->
+  gen_udp:send(State#state.socket, State#state.host, State#state.port, Message),
+  {ok, State};
 handle_call(stop, _From, State) ->
 	gen_udp:close(State#state.socket),
 	{stop, normal, stopped, State}.
